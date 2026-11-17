@@ -64,10 +64,21 @@ identity rules and regeneration rules. All objects live in the `arc-doc` object 
 | `GravityNetwork`, `PressureNetwork` | parts with family, size, positions, inverts, rims or depths, connections, status, parts list, rule sets, reference surface and alignment | rule findings, rims from surface, solids |
 | `Catchment`, `Channel`, `Culvert`, `Storage` | boundary, parameters, links to network nodes | flow paths, times of concentration, stage-storage |
 | `AnalysisScenario` | rainfall, loads, parameters, network state | analysis model, result set (revision-tagged) |
+| `FlowDomain2D` | boundary, mesh controls, refinement regions, roughness lookup, boundary conditions, coupling points | mesh, result set (revision-tagged) |
+| `PedestrianStudy` | derived network inputs, demands, speed distributions, criteria | simulation results, comfort classification |
 | `Bridge`, `RetainingWall`, `Tunnel` | baseline reference, stations, supports, deck components, parameters | deck and support geometry, clearance findings |
 | `Track` (alignment kind rail) with `CantSet`, `TurnoutInstance`, `Platform` | cant parameters, turnout definition and station, platform parameters | diverging alignments, envelopes |
 | `SweptPath` | vehicle reference, guide object or driven segments, speed, direction | envelopes, conflicts |
 | `ParkingRow`, `ParkingArea` | edge reference, standard, angle, side | bays, counts |
+
+### Exchange and field use
+
+| Type | Key authored properties | Derived data |
+|---|---|---|
+| `ConnectorSession` | host application and version, mapping profile, exchange identifier map, revision stamps per object | loss report, change lists |
+| `FieldRecord` (check shot, markup, issue, photo) | field position and accuracy, anchor (object, station or coordinates), author, time | deviations against design values |
+| `WorkPackage` | selected areas, objects and sheets, source revision | included derived results and caches |
+| `ObservationFile` and reduction settings | original file reference, accepted and rejected observations with reasons | reduced observations, baseline vectors |
 
 ### Production and resources
 

@@ -49,25 +49,23 @@ stable identifier, and open formats (LandXML, IFC 4.3, GIS formats) are first-cl
 
 ## Scope
 
-CivilBuilder covers the 26 capability areas listed in the [capability index](capabilities/README.md):
+CivilBuilder covers the 28 capability areas listed in the [capability index](capabilities/README.md):
 geospatial data, survey, surfaces, alignments, profiles, cross-section components and assemblies,
 corridors, intersections and roundabouts, sections, quantities and mass haul, grading, parcels,
 gravity and pressure networks, hydrology and hydraulics, rail, bridges and structures, plan
 production, styles and labels, shared references and collaboration, concept modeling and analysis,
-swept paths and parking, reality and subsurface data, automation and interoperability.
+swept paths and parking, reality and subsurface data, automation and interoperability, exchange of native civil objects with other applications through connectors, and field and review use in a browser and on tablets.
 
 ## Non-goals
 
 | Non-goal | Reason |
 |---|---|
 | Structural analysis, design and reinforcement detailing of bridges and structures | Structural engineering belongs to ArchBuilder's structural discipline and to dedicated analysis tools; CivilBuilder provides geometry, clearances and IFC handover (CB-BRG-012). |
-| Full point cloud registration and scan processing | Registration of raw scans is a separate processing discipline; CivilBuilder consumes registered clouds and aligns them by control (CB-REAL-010). |
-| GNSS and total-station raw data processing and field controller software | Field data processing is instrument-specific; CivilBuilder imports results through open formats and plug-ins. |
+| Registration of raw scans | Registration of raw scans is a separate processing discipline; CivilBuilder consumes registered clouds and aligns them by control (CB-REAL-010). It enters as a T3 capability only if no other Arc product provides it. |
+| Instrument control and field controller software | Controlling total stations and receivers is instrument-specific firmware territory; CivilBuilder imports and reduces their observation files (CB-SURV-033 to CB-SURV-038) and shows design values at a position in the field (CB-TOUCH-009). |
 | Full cost estimating and scheduling | CivilBuilder produces quantities and simple cost totals; estimating, 4D and 5D belong to Arc Review and dedicated tools. |
-| Pedestrian crowd simulation | No documented, testable method is selected and no workflow depends on it; revisit when a validated open model is available. |
-| Two-dimensional unsteady river modeling and sediment transport | Specialized, validated river solvers exist; CivilBuilder exports river geometry (CB-HYD-020) and screens flooding at concept level (CB-ANL-006). |
 | Storing the civil model as drawing entities | The model lives in the Arc document package; drawings are an output and exchange format ([ADR-0001](../adr/0001-civil-model-in-document-package.md)). |
-| Reading or writing proprietary formats without a published specification | Exchange runs through open formats in line with the suite interoperability policy. |
+| Reverse engineering undocumented formats or binaries, and running compiled or protected script files of other applications | Each is a legal problem. Proprietary data is exchanged through connectors, user-licensed bridges and open readers (CB-CONNECT-001 to CB-CONNECT-015) and through open formats. |
 
 ## Positioning
 
@@ -94,5 +92,9 @@ swept-path analysis.
 | Styles, criteria and components as text-diffable libraries with headless audits | CB-STY-020, CB-STY-022, CB-AUTO-011 |
 | Swept paths linked to design geometry and regenerated with it | CB-VEH-005, CB-VEH-010, CB-INT-016 |
 | Haul optimization and grading optimization in the desktop application, offline | CB-QTY-018, CB-GRD-018 |
+| Exchange of native civil design objects with other applications through connectors, with identifiers for repeated round trips and loss reports | CB-CONNECT-001, CB-CONNECT-009, CB-CONNECT-011 |
+| Field use on tablets and in the browser from the same code: model viewing, design values at a position, markups, issues and offline work packages | CB-TOUCH-001, CB-TOUCH-009, CB-TOUCH-014 |
+| Raw total-station and GNSS observation files reduced into the survey database and adjustment | CB-SURV-033, CB-SURV-036, CB-SURV-037 |
+| Open, validated solver processes for two-dimensional unsteady flood flow and pedestrian movement | CB-HYD-024, CB-ANL-015 |
 | Reliable headless operation for batch export, checks and reports | CB-AUTO-004, CB-AUTO-012 |
 | Cross-platform, offline, account-free operation | Suite principles |

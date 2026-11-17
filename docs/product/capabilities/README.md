@@ -21,7 +21,7 @@ project board.
 | File | Area token | Scope | Rows |
 |---|---|---|---|
 | [01-geospatial.md](01-geospatial.md) | `GEO` | Coordinate reference systems, datums, ground and grid, units, live geospatial sources | 23 |
-| [02-survey.md](02-survey.md) | `SURV` | Points, point groups, description keys, survey database, figures, networks, adjustment, stakeout | 32 |
+| [02-survey.md](02-survey.md) | `SURV` | Points, point groups, description keys, survey database, field data and raw observation reduction, figures, networks, adjustment, stakeout | 38 |
 | [03-surfaces.md](03-surfaces.md) | `SURF` | Surface kinds, definition, editing, analysis, volumes | 37 |
 | [04-alignments.md](04-alignments.md) | `ALN` | Horizontal geometry, stationing, offsets and widenings, criteria, superelevation | 26 |
 | [05-profiles.md](05-profiles.md) | `PRF` | Surface and layout profiles, vertical criteria, profile views and bands | 21 |
@@ -34,20 +34,22 @@ project board.
 | [12-parcels.md](12-parcels.md) | `PCL` | Parcel topology, lot layout, right of way, labels, map checks | 15 |
 | [13-gravity-networks.md](13-gravity-networks.md) | `GRAV` | Storm and sanitary pipes and structures, rules, interference, trenches | 16 |
 | [14-pressure-networks.md](14-pressure-networks.md) | `PRES` | Pressure pipes, fittings, appurtenances, cover and deflection rules | 11 |
-| [15-hydrology.md](15-hydrology.md) | `HYD` | Catchments, rainfall, runoff, network hydraulics, channels, culverts, storage, pressure hydraulics | 21 |
+| [15-hydrology.md](15-hydrology.md) | `HYD` | Catchments, rainfall, runoff, network hydraulics, channels, culverts, storage, pressure hydraulics, two-dimensional flood modeling | 27 |
 | [16-rail.md](16-rail.md) | `RAIL` | Track geometry, cant, turnouts, platforms, gauges and envelopes | 15 |
 | [17-bridges.md](17-bridges.md) | `BRG` | Bridges, culvert structures, retaining walls, tunnels | 12 |
 | [18-plan-production.md](18-plan-production.md) | `PLAN` | Sheet frames, match lines, plan, profile and section sheets, publishing | 13 |
 | [19-styles-labels.md](19-styles-labels.md) | `STY` | Object styles, label styles and expressions, tables, libraries and settings | 24 |
 | [20-collaboration.md](20-collaboration.md) | `REF` | Shared references, project workspace, comparison, Hub collaboration | 15 |
 | [21-concept-modeling.md](21-concept-modeling.md) | `CON` | Concept roads, structures and drainage in geospatial context, options, visualization | 18 |
-| [22-concept-analysis.md](22-concept-analysis.md) | `ANL` | Sight, visibility, sun, regional hydrology, flood, traffic, noise, optimization | 13 |
+| [22-concept-analysis.md](22-concept-analysis.md) | `ANL` | Sight, visibility, sun, regional hydrology, flood, traffic, pedestrian movement, noise, optimization | 16 |
 | [23-swept-paths.md](23-swept-paths.md) | `VEH` | Vehicles, swept paths, conflicts, parking and loading layout | 24 |
 | [24-reality-data.md](24-reality-data.md) | `REAL` | Point clouds, reality meshes, as-built comparison, boreholes and strata | 15 |
 | [25-automation.md](25-automation.md) | `AUTO` | Commands, protocol, CLI, Python, node graphs, plug-ins, reports, checks | 15 |
 | [26-interoperability.md](26-interoperability.md) | `IO` | LandXML, IFC 4.3, DWG/DXF, PDF, machine control, hydraulic and rail exchange | 16 |
+| [27-application-connectors.md](27-application-connectors.md) | `CONNECT` | Exchange of native civil objects with other applications through connectors, licensed bridges and open readers | 15 |
+| [28-web-and-tablet.md](28-web-and-tablet.md) | `TOUCH` | Browser, tablet and phone builds: viewing, position inspection, markups, issues, offline use | 16 |
 
-Total: 491 capabilities.
+Total: 537 capabilities.
 
 ## Capabilities and issues
 

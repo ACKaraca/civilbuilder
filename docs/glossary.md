@@ -6,6 +6,7 @@ CivilBuilder vocabulary, one line per term.
 |---|---|
 | Alignment | Horizontal geometry of lines, arcs and spirals measured by station. |
 | Analysis model | The solver representation of networks, catchments and storage derived from design objects. |
+| Arc exchange package | The open container through which connectors and CivilBuilder exchange data with other applications. |
 | Assembly | A typical cross-section: component instances arranged left and right of an attachment point. |
 | Attachment point | The point of an assembly placed on the baseline, or the named output point a component instance attaches to. |
 | Baseline | The path a corridor follows: an alignment with a profile, or a feature line or 3D polyline. |
@@ -18,6 +19,7 @@ CivilBuilder vocabulary, one line per term.
 | Combined scale factor | Product of grid scale factor and elevation factor, relating grid and ground distances. |
 | Component definition | A node graph that outputs points, links and shapes with codes for given parameters and targets. |
 | Component instance | A use of a component definition in an assembly with parameter values. |
+| Connector | An add-in running inside another application through its public API that reads and writes the Arc exchange package. |
 | Connector alignment | An alignment joining offsets of two alignments, used for curb returns. |
 | Corridor | A 3D linear model computed by evaluating assemblies along baselines. |
 | Criteria set | Design tables and check rules keyed by design speed. |
@@ -26,13 +28,17 @@ CivilBuilder vocabulary, one line per term.
 | Description key | A rule that maps a raw field description to point display and properties. |
 | Design option | A named alternative set of objects over shared context. |
 | Display set | View-specific overrides of style component visibility and appearance. |
+| Exchange identifier map | The pairing of object identifiers on both sides of an exchange, used to update objects on repeated round trips. |
 | Feature line | 3D linework with editable elevations used for grading and as breaklines and targets. |
+| Field position | A location from the device, a receiver or a pick, with its CRS and stated accuracy, used to inspect design values. |
+| Field record | A check shot, markup, issue or photo made in the field and kept apart from design data. |
 | Figure | Survey linework built from coded points. |
 | Frequency set | The rules that place corridor stations. |
 | Grading | A slope projection from a feature line footprint to a target. |
 | Grading set | Gradings and infills with a combined surface and volumes. |
-| Layout site | A topology container in which feature lines, alignments and parcel segments interact. |
 | Label set | A named group of label styles applied together. |
+| Layout site | A topology container in which feature lines, alignments and parcel segments interact. |
+| Licensed bridge | A user-installed, user-licensed conversion library called as a separate process. |
 | Link | A component output segment between two points. |
 | Loss report | The list of source content an import did not model exactly. |
 | Mass haul | Cumulative earthwork volume along stations, used for balancing and haul planning. |
@@ -42,16 +48,18 @@ CivilBuilder vocabulary, one line per term.
 | Parcel | A closed area formed by layout site topology. |
 | Parts list | The subset of a part catalog allowed in a network. |
 | Pay item | A billing item with unit, assigned to objects to produce quantities. |
+| Pedestrian network | Walkable areas, crossings, stairs and obstacles derived from design objects for movement simulation. |
 | Point group | A rule-defined, automatically maintained set of points. |
 | Presentation pass | The step that combines design data and styles into display and drafting output. |
 | Profile | Vertical geometry along an alignment. |
 | Profile view | A graph object showing profiles over a station range. |
+| Reduced observation | A direction, distance or height difference computed from raw observations after averaging and corrections. |
 | Region | A station range of a corridor baseline with its own assembly, frequency and targets. |
 | Road style | A concept-level assembly used by concept roads. |
 | Sample line | A line across an alignment at a station along which sections are cut. |
 | Section | The cut of a surface, corridor, network or solid by a sample line. |
-| Shared reference | A read-only link to an object in another document by identifier. |
 | Shape | A closed component output area, used for quantities and solids. |
+| Shared reference | A read-only link to an object in another document by identifier. |
 | Sheet frame | A rectangle along an alignment defining the extent of one plan sheet. |
 | Station | Distance along an alignment, displayed through station equations. |
 | Station equation | A pair of back and ahead stations that re-stations an alignment. |
@@ -61,5 +69,7 @@ CivilBuilder vocabulary, one line per term.
 | Target | A model object that a component reads, such as a surface for daylight or an alignment for width. |
 | TIN | Triangulated irregular network: a surface of triangles. |
 | Turnout | Track geometry that diverges one track from another. |
+| Two-dimensional domain | The boundary and mesh over which unsteady surface flow is computed. |
 | Volume surface | The difference of two surfaces, used for cut and fill. |
 | Widening | A station range over which an offset changes with transitions. |
+| Work package | The part of a document, with derived results and caches, prepared for offline field use. |

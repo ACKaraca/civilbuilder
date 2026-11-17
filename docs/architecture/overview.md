@@ -90,9 +90,19 @@ sequenceDiagram
 | Criteria and checks | `civilbuilder-model` | Criteria sets as data, check evaluation on change, findings with locations |
 | Survey computation | `civilbuilder-model` | Traverse reduction, least-squares adjustment (sparse normal equations), leveling |
 | Vehicle kinematics | `civilbuilder-model` | Low-speed tractrix-based path model for articulated vehicles, envelope generation |
-| Hydraulic boundary | `civilbuilder-hydraulics` | Model translation and engine workers |
+| Hydraulic boundary | `civilbuilder-hydraulics` | Model translation and engine workers, including the two-dimensional flood solver and the pedestrian movement model |
+| Exchange sessions | `civilbuilder-io` | Reads and writes the Arc exchange package, identifier map, change detection and loss reports; connectors themselves live in `arc-connectors` |
 | Geospatial layers | `civilbuilder-io` and `arc-io-geo` | CRS transformation pipelines, tile cache, referenced layers |
 | Style resolution | `civilbuilder-model` | Inheritance resolution, label layout input, table binding |
+
+## Browser, tablet and phone targets
+
+Under [suite ADR-0018](https://github.com/ACKaraca/arc-suite/blob/main/docs/adr/0018-web-and-mobile-targets.md)
+the crates below the UI layer build for WebAssembly and for iOS and Android, and `civilbuilder-ui`
+runs on the same UI kit for those targets. Field builds expose a subset of commands (see
+[web and tablet](../product/capabilities/28-web-and-tablet.md)). Solver workers, SQLite packages and
+other process-bound parts are outside those builds; they read derived results carried in a work
+package instead.
 
 ## Threading and background work
 
@@ -128,6 +138,7 @@ targets, verified by benchmarks in continuous integration once code exists ([OQ-
 | CLI | `civilbuilder-cli convert`, `rebuild`, `check`, `report`, `export`, `compare`, `serve` (CB-AUTO-004) |
 | Node graphs | Component definitions and automation graphs on one engine (CB-ASM-001, CB-AUTO-006) |
 | Plug-ins | WebAssembly plug-ins for formats, checks, reports and label functions (CB-AUTO-008) |
+| Connector sessions | Applied headless from a saved mapping profile (CB-CONNECT-012) |
 
 ## Testing strategy
 

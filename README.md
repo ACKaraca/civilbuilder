@@ -8,7 +8,8 @@ hydraulic analysis, rail, bridges and concept infrastructure in a geospatial con
 document, and produces sheets, quantities and open exchange files from it. The dependency chain from
 surface to alignment, profile, corridor, sections and quantities runs on a multi-threaded,
 incremental regeneration graph. It is written in Rust, runs on Windows, macOS and Linux, and works
-offline without an account.
+offline without an account. The same crates also build for the browser and for tablets, and
+connectors running inside other applications exchange native civil design objects with it.
 
 ## Who it is for
 
@@ -21,7 +22,7 @@ quantities and machine-control models.
 | Area | Scope |
 |---|---|
 | [Geospatial](docs/product/capabilities/01-geospatial.md) | CRS, datums, ground and grid, live GIS layers and streaming tiles |
-| [Survey](docs/product/capabilities/02-survey.md) | Points, groups, description keys, survey database, figures, adjustment |
+| [Survey](docs/product/capabilities/02-survey.md) | Points, groups, description keys, survey database, raw observations, figures, adjustment |
 | [Surfaces](docs/product/capabilities/03-surfaces.md) | TIN and grid surfaces, editing, analysis, volumes |
 | [Alignments](docs/product/capabilities/04-alignments.md) | Horizontal geometry, criteria, superelevation, widenings |
 | [Profiles](docs/product/capabilities/05-profiles.md) | Surface and layout profiles, profile views and bands |
@@ -34,18 +35,20 @@ quantities and machine-control models.
 | [Parcels](docs/product/capabilities/12-parcels.md) | Topology, lot layout, map checks |
 | [Gravity networks](docs/product/capabilities/13-gravity-networks.md) | Storm and sanitary pipes and structures |
 | [Pressure networks](docs/product/capabilities/14-pressure-networks.md) | Pressure pipes, fittings, appurtenances |
-| [Hydrology](docs/product/capabilities/15-hydrology.md) | Runoff, network hydraulics, channels, culverts, storage |
+| [Hydrology](docs/product/capabilities/15-hydrology.md) | Runoff, network hydraulics, channels, culverts, storage, two-dimensional flood modeling |
 | [Rail](docs/product/capabilities/16-rail.md) | Track geometry, cant, turnouts, clearances |
 | [Bridges](docs/product/capabilities/17-bridges.md) | Bridges, culverts, walls, tunnels |
 | [Plan production](docs/product/capabilities/18-plan-production.md) | Sheet frames, plan, profile and section sheets |
 | [Styles and labels](docs/product/capabilities/19-styles-labels.md) | Object styles, label styles, tables, libraries |
 | [Collaboration](docs/product/capabilities/20-collaboration.md) | Shared references, comparison, Arc Hub |
 | [Concept modeling](docs/product/capabilities/21-concept-modeling.md) | Concept roads and structures in context, options |
-| [Concept analysis](docs/product/capabilities/22-concept-analysis.md) | Sight, visibility, flood, traffic, noise |
+| [Concept analysis](docs/product/capabilities/22-concept-analysis.md) | Sight, visibility, flood, traffic, pedestrian movement, noise |
 | [Swept paths](docs/product/capabilities/23-swept-paths.md) | Vehicles, swept paths, parking |
 | [Reality data](docs/product/capabilities/24-reality-data.md) | Point clouds, meshes, boreholes |
 | [Automation](docs/product/capabilities/25-automation.md) | Commands, protocol, CLI, graphs, plug-ins |
 | [Interoperability](docs/product/capabilities/26-interoperability.md) | LandXML, IFC 4.3, DWG/DXF, PDF, machine control |
+| [Application connectors](docs/product/capabilities/27-application-connectors.md) | Exchange of native civil objects with other applications, licensed bridges, open readers |
+| [Web and tablet](docs/product/capabilities/28-web-and-tablet.md) | Browser and tablet builds: viewing, position inspection, markups, offline use |
 
 ## How it fits in the suite
 
@@ -102,8 +105,9 @@ Details: [architecture overview](docs/architecture/overview.md).
 CivilBuilder starts in suite phase 3. Milestones M1 to M3 deliver terrain and survey, the linear
 design chain, and a first production release with sections, quantities, grading, plan production,
 shared references, LandXML and IFC 4.3. Phase 4 adds parcels, intersections, roundabouts, swept
-paths, concept modeling and point clouds; phase 5 adds networks with hydraulics, rail, bridges and
-multi-user editing. See the [roadmap](docs/roadmap.md).
+paths, concept modeling and point clouds; phase 5 adds networks with hydraulics, rail, bridges,
+multi-user editing, two-dimensional flood and pedestrian studies, raw survey data reduction,
+exchange connectors for other applications, and browser and tablet builds. See the [roadmap](docs/roadmap.md).
 
 ## Documentation
 
