@@ -1,0 +1,36 @@
+# Open questions
+
+Behaviors that need verification or a design decision before they can be implemented as specified.
+Each entry names the capabilities affected and what closes it.
+
+| ID | Question | Capabilities affected | Closed by |
+|---|---|---|---|
+| OQ-01 | Which traverse balancing and least-squares options, weighting models and report statistics are required for survey-grade acceptance in the first release? | CB-SURV-022, CB-SURV-023, CB-SURV-024 | A test corpus of adjusted networks with independently computed reference results, and a decision on the minimum statistic set. |
+| OQ-02 | Which instrument and collector raw formats have published specifications that permit implementation, and which must be left to plug-ins? | CB-SURV-019, CB-AUTO-008 | A format-by-format licence and specification review recorded in the interoperability document. |
+| OQ-03 | How are national design criteria tables distributed when the published standards are copyrighted? | CB-ALN-015, CB-PRF-009, CB-RAIL-004, CB-INT-015 | A decision on shipping example sets only, user-entered sets, or sets contributed under a compatible licence with provenance. |
+| OQ-04 | Which superelevation attainment methods and overlap rules are required, and how are they parameterized independently of any one national standard? | CB-ALN-019, CB-ALN-022 | Comparison of at least three national methods and a parameter model that expresses all of them. |
+| OQ-05 | Which roundabout geometric checks (fastest path construction, entry deflection, visibility) are defined in a way that can be computed deterministically? | CB-INT-015 | A written construction method for fastest paths with test geometries and expected radii. |
+| OQ-06 | What generated-object editing model do intersections and roundabouts use when the user edits generated alignments, profiles or regions by hand? | CB-INT-004, CB-INT-007 | A prototype of override tracking on regeneration and a decision on preserve versus report rules. |
+| OQ-07 | Which optimization formulation (variables, constraints, solver class) is used for grading optimization, and what problem size must it handle interactively? | CB-GRD-018, CB-GRD-019 | Benchmarks of candidate formulations on reference sites and a selected solver with a permissive licence. |
+| OQ-08 | Is the hydraulic engine run as the reference open engines in a worker process, or reimplemented natively, and what result tolerance defines parity? | CB-HYD-007, CB-HYD-018, CB-IO-009 | ADR-0005 trigger evaluation with a reference result corpus. |
+| OQ-09 | Which hydrology methods (time of concentration, runoff, loss methods) are required in the first networks release, and which can be added through plug-ins? | CB-HYD-002, CB-HYD-004 | A method matrix agreed with drainage practitioners and backed by worked examples. |
+| OQ-10 | Which structure loss methods are used for hydraulic grade lines in steady storm sewer design? | CB-HYD-008 | A documented method list with reference calculations. |
+| OQ-11 | Which turnout geometry parameters cover the turnout families in common use, and can a catalog format express them without vendor tables? | CB-RAIL-006, CB-RAIL-007, CB-RAIL-008 | A parameter model validated against published turnout geometry from at least two national systems. |
+| OQ-12 | Which cant transition shapes and rate limits are required, and how do they interact with spiral types? | CB-RAIL-002, CB-RAIL-003 | A rail criteria schema reviewed against two national standards. |
+| OQ-13 | Which railML version and subset is exported? | CB-RAIL-015, CB-IO-010 | Review of current railML releases and consumer support. |
+| OQ-14 | What level of bridge geometry (haunch, camber input, bearing seats) is needed for a useful handover to structural tools through IFC? | CB-BRG-002, CB-BRG-003, CB-BRG-005, CB-BRG-012 | Round-trip tests with ArchBuilder structural import and an IFC 4.3 bridge validation suite. |
+| OQ-15 | Which IFC 4.3 entity classifications are used for corridor solids by shape code, and how are user codes mapped to them? | CB-IO-003, CB-COR-014 | A default code-to-entity mapping table validated with an independent IFC reader. |
+| OQ-16 | Which LandXML 2.0 elements are in practical use by consumers, and what is exported when a consumer accepts only 1.2? | CB-IO-001, CB-IO-002 | Interoperability tests with independent readers for both versions. |
+| OQ-17 | Which geoid and transformation grid files may be bundled, and which must the user install? | CB-GEO-004, CB-GEO-005 | A licence review of grid sources and a download-on-request design that works offline once installed. |
+| OQ-18 | How is the US survey foot handled for documents and data that predate its retirement? | CB-GEO-009, CB-GEO-001 | A decision on unit identities and conversion rules with test cases. |
+| OQ-19 | Which machine-control formats beyond LandXML, IFC and 3D DXF are needed, and which have published specifications? | CB-IO-008 | A format review; formats without published specifications remain plug-in territory. |
+| OQ-20 | Which methods are used for traffic microsimulation, and can an open, validated model be integrated behind an engine boundary? | CB-ANL-007, CB-ANL-008 | Evaluation of open simulation engines and their licences against reference intersections. |
+| OQ-21 | Which flood screening method gives useful concept-level depth and extent results, and how is its limitation communicated? | CB-ANL-006 | Comparison with reference river and rain-on-grid results on test catchments. |
+| OQ-22 | Which road noise calculation method is implemented, given that national methods differ? | CB-ANL-009 | Selection of a published method with reference test cases. |
+| OQ-23 | Which kinematic vehicle model and which vehicle dimension data can be shipped, given that standard design vehicle tables may be copyrighted? | CB-VEH-001, CB-VEH-002, CB-VEH-005, CB-VEH-007 | A model validated against measured turning tests and a licence review of dimension sources. |
+| OQ-24 | Which ground classification and feature extraction algorithms meet accuracy targets on typical mobile and airborne clouds? | CB-REAL-003, CB-REAL-006 | Benchmarks on openly licensed reference clouds. |
+| OQ-25 | What scope of geotechnical data (AGS groups, test types, interpolation methods) is required? | CB-REAL-012, CB-REAL-013, CB-REAL-015 | Review with geotechnical users and a reference data set. |
+| OQ-26 | What are realistic performance targets for corridor rebuild and large surfaces on reference hardware? | CB-COR-007, CB-COR-008, CB-SURF-006 | Measured baselines from the first implementation against the targets in the architecture overview. |
+| OQ-27 | How are label collision avoidance and plan readability resolved deterministically so sheets are stable between runs? | CB-STY-010, CB-STY-015, CB-PLAN-009 | A prototype with determinism tests on reference sheets. |
+| OQ-28 | Which pay item catalog structures (hierarchies, formulas, units) must be importable? | CB-QTY-009, CB-QTY-011 | Review of published agency catalogs and a documented import schema. |
+| OQ-29 | How do element-level multi-user edits interact with derived corridor outputs that span objects borrowed by different users? | CB-REF-012, CB-COR-008 | A design note on borrowing granularity for derived data, agreed with Arc Hub. |
