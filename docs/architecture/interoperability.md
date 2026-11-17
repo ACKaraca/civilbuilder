@@ -21,7 +21,11 @@ relationships), **edit** (native, parametric editing in CivilBuilder).
 | LAS, LAZ, COPC, E57 | view and data (referenced) | not exported | `arc-io-pointcloud` |
 | glTF, OBJ, 3D Tiles | view (reality meshes, assets, context) | view (model and context) | `arc-io-mesh` |
 | Arc Scene (OpenUSD-aligned) | not applicable | view for rendering | RenderBuilder contract |
+| Arc exchange package | edit or data, by object kind and the host interface (surfaces, alignments, profiles, corridors, networks, parcels, points, figures, concept objects; styles where mapped) | edit or data for the same set | Written and read by connectors inside other applications ([ADR-0017](https://github.com/ACKaraca/arc-suite/blob/main/docs/adr/0017-exchange-connectors-and-licensed-bridges.md)); CB-CONNECT-001 to CB-CONNECT-013 |
+| DGN V7 | data (linework, points, text and cells as source geometry) | not exported | Open reader behind an `arc-io-*` crate; CB-CONNECT-015 |
 | Field book text format (documented by the project) | data (observations) | not exported | CB-SURV-018 |
+| Total-station observation files in open or published formats | data (raw observations) | not exported | CB-SURV-033 |
+| RINEX observation and navigation files, SP3 precise orbits and clocks | data (raw observations, orbit products) | not exported | CB-SURV-035 |
 | Delimited point formats | data | data | CB-SURV-003 |
 | AGS geotechnical files, borehole CSV | data | not exported | CB-REAL-012 |
 | SWMM-class input files | data (network, catchments, storage) | data | CB-IO-009 |
@@ -50,6 +54,8 @@ relationships), **edit** (native, parametric editing in CivilBuilder).
 
 ## Validation
 
+- Connector packages validate against the published exchange package schema and the `arc-core`
+  conformance suite before any object is created (CB-CONNECT-013).
 - LandXML exports validate against the published schemas; IFC exports validate with an independent
   IFC reader and schema checks in continuous integration; DXF exports reopen in an independent reader.
 - Round-trip tests (import, export, re-import) compare objects semantically with tolerances.
@@ -65,13 +71,38 @@ approximation stated, for example spiral type substituted), preserved as foreign
 as preserved foreign data so a later export to the same format can include it. Exports produce a
 report of objects or properties the target format cannot carry.
 
+## Connectors, bridges and open readers
+
+Native civil design objects held in other applications' drawings and concept models (surfaces,
+alignments, profiles, corridors, pipe networks, parcels, points, figures, and styles where they map)
+are exchanged through three routes, in this order of preference:
+
+1. **Open readers** for formats with a published specification or a permissively licensed open-source
+   reader, read natively behind an `arc-io-*` crate (DGN V7).
+2. **Connectors**, add-ins running inside the user's own licensed copy of the other application
+   through its public API, which read and write the Arc exchange package. They live in the
+   `arc-connectors` repository. CivilBuilder reads and writes the package in `civilbuilder-io` and
+   applies it through the same import path as any other format (CB-CONNECT-012).
+3. **User-licensed bridges**: a conversion library that the user has installed and licensed, called
+   as a separate process. It is never distributed with Arc and no core workflow requires it
+   (CB-CONNECT-014).
+
+All three produce the loss report, source identifier map and preserved foreign data described below.
+The exchange identifier map is kept on both sides so that repeated round trips update objects
+(CB-CONNECT-009), and each side's revision stamps detect changes on both sides before anything is
+overwritten (CB-CONNECT-010). Mapping of assemblies and styles is partial by nature: what does not
+map is preserved as foreign data and listed, never dropped silently. LandXML and IFC 4.3 stay the
+default for any application that exports them well.
+
 ## Deliberately unsupported
+
+Reverse engineering undocumented formats or binaries, running compiled or protected script files of
+other applications, and codecs whose licence forbids open distribution are excluded because each is
+a legal problem. The rows below are formats that CivilBuilder does not read or write directly, with
+the route that exists instead.
 
 | Format | Reason | Exchange instead |
 |---|---|---|
-| Proprietary civil object data inside DWG files written by other civil applications | No published specification for the custom objects | LandXML or IFC 4.3 from the source application; plain DWG geometry imports as definition data |
-| DGN | No published specification for the current version | IFC 4.3, LandXML, DXF |
-| Proprietary concept-model exchange formats of other applications | No published specification | LandXML, IFC 4.3, GIS formats, glTF |
 | Proprietary point cloud project formats | No published specification | LAS, LAZ, COPC, E57 |
 | Manufacturer machine-control formats without published specifications | Specification not public | LandXML, IFC 4.3, 3D DXF; plug-ins where a manufacturer publishes a format ([OQ-19](../product/open-questions.md)) |
-| Instrument raw formats without published specifications | Specification not public | LandXML survey data, field book format, plug-ins ([OQ-02](../product/open-questions.md)) |
+| Instrument raw formats without published specifications | Specification not public | LandXML survey data, field book format, open observation formats (CB-SURV-033, CB-SURV-035), plug-ins ([OQ-02](../product/open-questions.md)) |

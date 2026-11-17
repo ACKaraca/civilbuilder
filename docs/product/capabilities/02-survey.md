@@ -1,7 +1,7 @@
 # Survey
 
 This area turns field measurements into coordinated points and linework. It covers points, point
-groups, description keys, the survey database, field data import, figures, networks, traverse and
+groups, description keys, the survey database, field data import, raw observation reduction, figures, networks, traverse and
 least-squares adjustment, and stakeout output.
 
 ## Domain objects
@@ -42,7 +42,7 @@ least-squares adjustment, and stakeout output.
 | CB-SURV-016 | Survey settings | Settings define units, angle conventions, tolerances, default standard errors, curvature and refraction, sea-level and grid scale corrections, and point naming. Changing a setting marks computed coordinates stale until recomputed. | T1 | 3 |
 | CB-SURV-017 | Equipment profiles | Profiles store instrument precision (angle, distance constant and ppm, centering, target and instrument height errors) and are referenced by setups to weight observations. | T2 | 4 |
 | CB-SURV-018 | Field book import | An openly documented field book text format with commands for setups, backsights, sideshots, traverses, curves, offsets and line begin and end imports into a network. Errors are reported by line with the computation that failed. | T1 | 3 |
-| CB-SURV-019 | Structured survey import | LandXML survey data imports into networks with observations and points. Instrument and collector formats import through format plug-ins (CB-AUTO-008). | T1 | 3 |
+| CB-SURV-019 | Structured survey import | LandXML survey data imports into networks with observations and points. Raw instrument observation files import through CB-SURV-033 and CB-SURV-035; formats without a published specification import through format plug-ins (CB-AUTO-008). | T1 | 3 |
 | CB-SURV-020 | Raw observations | Observations are kept as measured (directions, distances, height differences, instrument and target heights) separately from computed coordinates, and coordinates recompute from them when settings or control change. | T1 | 3 |
 | CB-SURV-021 | Survey networks | A network holds control points (fixed or weighted), setups, directions and observations. A network view shows the observation graph and reports disconnected parts and points without redundancy. | T1 | 4 |
 | CB-SURV-022 | Traverse closure and balancing | Traverses report angular and linear misclosure and precision ratio, and balance by compass rule, transit rule, Crandall method or least squares. The user previews the balanced result before accepting it. | T1 | 4 |
@@ -61,3 +61,18 @@ least-squares adjustment, and stakeout output.
 | CB-SURV-030 | Survey queries | Queries filter observations, points and figures by property and location, and their results insert into the model or a point group. | T2 | 4 |
 | CB-SURV-031 | Coordinate geometry entry | Bearings, distances and curves are entered as a traverse to create boundary linework or parcels (CB-PCL-002); closure is reported before the geometry is created. | T1 | 3 |
 | CB-SURV-032 | Stakeout output | Stakeout lists are generated from points, from alignments at station and offset, and from corridors as slope stakes (CB-COR-019), and export as LandXML or CSV. | T2 | 4 |
+
+## Raw observation files and reduction
+
+Files from total stations and GNSS receivers are read when their format is open or published.
+Formats without a published specification stay with format plug-ins (CB-AUTO-008). Controlling
+instruments and running field controller software are outside the product.
+
+| ID | Capability | Behavior | Tier | Phase |
+|---|---|---|---|---|
+| CB-SURV-033 | Total-station observation import | Observation files in open or published total-station formats import into a network as setups, backsights, directions, distances, zenith angles, instrument and target heights and codes, preserving face-left and face-right pairs and repeated rounds. Unreadable records are reported by line and the original file is kept. | T3 | 5 |
+| CB-SURV-034 | Observation reduction | Raw observations reduce to horizontal directions and distances: face and round averaging with spread checks, slope to horizontal and height difference, curvature and refraction, atmospheric, sea-level and grid scale corrections from the survey settings (CB-SURV-016). Each reduced value links to the raw observations behind it, and observations outside the tolerance are listed for review. | T3 | 5 |
+| CB-SURV-035 | GNSS observation import | Receiver-independent observation and navigation files (RINEX) and published precise orbit and clock products import with their time span, site, antenna and receiver metadata. Unsupported versions or constellations are reported before use. | T3 | 5 |
+| CB-SURV-036 | GNSS baseline processing | Static and rapid-static sessions between stations reduce to baseline vectors with covariance, with the processing options, ambiguity status and quality statistics stored; sessions that fail quality thresholds are flagged, not discarded. | T3 | 5 |
+| CB-SURV-037 | GNSS vectors in adjustment | Baseline vectors enter the network as observations next to terrestrial ones (CB-SURV-023), weighted by their covariance, with the transformation from the receiver reference frame to the document CRS recorded and its residuals reported. | T3 | 5 |
+| CB-SURV-038 | Raw data review and reporting | A review view shows each file, setup and session with accepted, rejected and edited observations and the reason; edits are recorded without altering the raw values, and a report lists the files used, the corrections applied and the quality statistics. | T3 | 5 |

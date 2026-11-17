@@ -6,7 +6,7 @@ Every document in this repository, one line each.
 |---|---|
 | [product/vision.md](product/vision.md) | Problem, users, principles, scope, non-goals, positioning and differentiators |
 | [product/capabilities/README.md](product/capabilities/README.md) | Capability legend, area list with row counts, relation to issues |
-| [product/capabilities/](product/capabilities/README.md) | Twenty-six capability files, one per functional area |
+| [product/capabilities/](product/capabilities/README.md) | Twenty-eight capability files, one per functional area |
 | [product/workflows.md](product/workflows.md) | Fourteen reference workflows used as acceptance scenarios |
 | [product/open-questions.md](product/open-questions.md) | Behaviors that need verification or a decision |
 | [architecture/overview.md](architecture/overview.md) | Crates, use of `arc-core`, runtime flow, subsystems, threading, performance targets, testing |

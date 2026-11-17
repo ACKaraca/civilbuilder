@@ -1,7 +1,7 @@
 # Analysis in geospatial context
 
 This area evaluates designs against their surroundings: sight distance, visibility, sun and shadow,
-regional hydrology, flood screening, traffic simulation, noise screening, profile optimization and
+regional hydrology, flood screening, traffic simulation, pedestrian movement, noise screening, profile optimization and
 scenario comparison. Results are layers that can be displayed, compared and exported.
 
 ## Domain objects
@@ -26,3 +26,6 @@ scenario comparison. Results are layers that can be displayed, compared and expo
 | CB-ANL-011 | Design check overlays | Criteria violations from alignments, profiles, superelevation and sight distance display as markers in 3D views. | T2 | 4 |
 | CB-ANL-012 | Scenarios and comparison | Scenarios evaluate the same analyses across design options and present the results in one comparison table. | T2 | 4 |
 | CB-ANL-013 | Result layers | Results display as layers with legends, are tagged with the revision they were computed from, show stale when inputs change, and export as GeoTIFF or GeoPackage. | T2 | 4 |
+| CB-ANL-014 | Pedestrian network derivation | Walkable areas, crossings, stairs, ramps, platforms and obstacles derive from sidewalks, corridors, intersections, structures and drawn areas, and update when those objects change. Gaps and unreachable areas are listed. | T3 | 5 |
+| CB-ANL-015 | Pedestrian movement simulation | Pedestrian flow on the derived network uses demands (origin-destination matrices or entry rates over time), walking speed distributions and signal phases, and runs through an open, validated model in a worker process behind an adapter. Results report flows, densities, walking times, queues and waiting areas with animation. | T3 | 5 |
+| CB-ANL-016 | Pedestrian comfort and capacity | Density and flow results are classified against stated level-of-service criteria and effective widths, and evacuation or clearing times are computed for a defined set of exits; deficient locations list with the controlling object. | T3 | 5 |

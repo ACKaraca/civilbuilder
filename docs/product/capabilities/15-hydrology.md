@@ -1,7 +1,7 @@
 # Hydrology and hydraulics
 
 This area computes runoff and the hydraulic behavior of drainage, sewer, channel, culvert, storage
-and pressure systems. Analysis models derive from design objects automatically; solvers run behind
+and pressure systems, and two-dimensional unsteady flood flow. Analysis models derive from design objects automatically; solvers run behind
 an engine boundary in background processes (see [ADR-0005](../../adr/0005-hydraulic-engine-boundary.md)).
 
 ## Domain objects
@@ -54,3 +54,19 @@ an engine boundary in background processes (see [ADR-0005](../../adr/0005-hydrau
 | CB-HYD-019 | Fire flow analysis | Available fire flow at a residual pressure is computed per hydrant or node. | T2 | 5 |
 | CB-HYD-020 | River geometry export | Channel and corridor cross sections with stations, reach lengths and roughness export for external river analysis tools in documented text formats. | T3 | 5 |
 | CB-HYD-021 | Hydrology and hydraulics reports | Reports list catchment parameters, hydrographs, network results and storage routing from report templates. | T1 | 5 |
+
+## Two-dimensional unsteady flood modeling
+
+Two-dimensional shallow-water flow over terrain runs through an open, validated solver in a worker
+process behind an adapter, on the same boundary as the other engines
+([ADR-0005](../../adr/0005-hydraulic-engine-boundary.md)). Concept-level screening stays in
+CB-ANL-006.
+
+| ID | Capability | Behavior | Tier | Phase |
+|---|---|---|---|---|
+| CB-HYD-022 | Two-dimensional model domain | A domain is defined by a boundary and a computational mesh derived from surfaces, with refinement regions and breaklines from embankments, roads, walls and channels. Roughness comes from land cover through a lookup table and from objects. Mesh quality is checked and reported before a run. | T3 | 5 |
+| CB-HYD-023 | Boundary and source conditions | Inflow hydrographs (CB-HYD-004), stage and rating boundaries, tidal series and rainfall on the domain are assigned per boundary segment and per scenario, with consistency checks on units and time ranges. | T3 | 5 |
+| CB-HYD-024 | Unsteady two-dimensional solution | The solver adapter translates the model into the input of an open solver validated on published benchmark cases, runs it in a worker process with progress and cancellation, and imports results tagged with the model revision. A solver fault produces a failed run with its log. | T3 | 5 |
+| CB-HYD-025 | Structures in the two-dimensional domain | Culverts (CB-HYD-014), bridge openings, weirs and gates inside the domain are represented as linked structures with their stage-discharge behavior; the object mapping from solver elements back to design objects is kept. | T3 | 5 |
+| CB-HYD-026 | Coupling with drainage networks | Nodes of a gravity network (CB-HYD-007) exchange flow with the surface domain at inlets and manholes, so that surcharge appears as surface flooding and surface water enters inlets. Coupling points are mapped objects. | T3 | 5 |
+| CB-HYD-027 | Flood results | Depth, velocity, specific discharge, hazard classes and arrival time display as maps and time animations, with maximum envelopes, hydrographs at gauge locations and cross-section flows. Results are result layers (CB-ANL-013), stale when the model changes. | T3 | 5 |

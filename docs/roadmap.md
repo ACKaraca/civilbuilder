@@ -11,6 +11,7 @@ scopes are capability ID ranges from the [capability index](product/capabilities
 | M4 Site, concept and access | 4 | Parcels, intersections, roundabouts, swept paths, concept modeling and analysis, point clouds, survey adjustment |
 | M5 Networks and hydraulics | 5 | Gravity and pressure networks with hydrology and hydraulic analysis |
 | M6 Rail, structures and scale | 5 | Rail, bridges, multi-user editing, advanced analysis |
+| M7 Exchange, field data and field use | 5 | Connectors for other applications, raw survey observations, browser and tablet builds |
 
 ## M1 Terrain and survey (phase 3)
 
@@ -69,22 +70,40 @@ scopes are capability ID ranges from the [capability index](product/capabilities
 
 ## M5 Networks and hydraulics (phase 5)
 
-- **Scope:** CB-GRAV-001 to CB-GRAV-016; CB-PRES-001 to CB-PRES-011; CB-HYD-001 to CB-HYD-021;
+- **Scope:** CB-GRAV-001 to CB-GRAV-016; CB-PRES-001 to CB-PRES-011; CB-HYD-001 to CB-HYD-027;
   CB-SEC-011; CB-IO-009.
-- **Depends on `arc-core`:** no new crates; `civilbuilder-hydraulics` adds the engine boundary.
+- **Depends on `arc-core`:** no new crates; `civilbuilder-hydraulics` adds the engine boundary and the
+  two-dimensional solver adapter.
 - **Depends on other products:** none at compile time; Arc Hub automation jobs may run analyses
   headless.
 - **Exit criteria:** workflows 5 and 6 pass; hydraulic results match the reference engines within the
-  tolerances fixed by [OQ-08](product/open-questions.md).
+  tolerances fixed by [OQ-08](product/open-questions.md); two-dimensional flood results match the
+  published benchmark cases within the tolerances fixed by [OQ-31](product/open-questions.md).
 
 ## M6 Rail, structures and scale (phase 5)
 
 - **Scope:** CB-RAIL-001 to CB-RAIL-015; CB-BRG-001 to CB-BRG-008, CB-BRG-010 to CB-BRG-012;
-  CB-CON-010; CB-ANL-006 to CB-ANL-009; CB-VEH-004, CB-VEH-024; CB-REF-012; CB-AUTO-015;
+  CB-CON-010; CB-ANL-006 to CB-ANL-009, CB-ANL-014 to CB-ANL-016; CB-VEH-004, CB-VEH-024; CB-REF-012; CB-AUTO-015;
   CB-IO-010.
 - **Depends on `arc-core`:** `arc-hub-api` change sets for element-level editing.
 - **Depends on other products:** Arc Hub stage 2 multi-user editing; ArchBuilder structural import
   of IFC bridge handover.
 - **Exit criteria:** workflow 12 passes; two users edit different corridors of one document
   concurrently through Arc Hub and both edits survive; bridge handover opens in ArchBuilder with
-  geometry and alignment reference.
+  geometry and alignment reference; pedestrian simulation results match reference flows within the
+  tolerances fixed by [OQ-32](product/open-questions.md).
+
+## M7 Exchange, field data and field use (phase 5)
+
+- **Scope:** CB-CONNECT-001 to CB-CONNECT-015; CB-TOUCH-001 to CB-TOUCH-016; CB-SURV-033 to
+  CB-SURV-038.
+- **Depends on `arc-core`:** the Arc exchange package contract and its `arc-io-*` crate, the
+  WebAssembly and mobile builds of the layers below the UI, `arc-ui` touch input, `arc-app` platform
+  integration, `arc-hub-api` for work packages and field records.
+- **Depends on other products:** connectors from the `arc-connectors` repository; Arc Hub for
+  browser opening and synchronization of field records.
+- **Exit criteria:** a round trip through a connector updates paired objects without duplicates and
+  writes a loss report; a work package opens offline on a tablet, reports design values at a position
+  and synchronizes field records without changing design data; a raw observation set reduces and
+  adjusts to results that match independently computed reference results
+  ([OQ-01](product/open-questions.md), [OQ-30](product/open-questions.md)).

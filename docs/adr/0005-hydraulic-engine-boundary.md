@@ -1,7 +1,7 @@
 # 0005 Hydraulic engines behind a process boundary
 
 - Status: Accepted
-- Capabilities: CB-HYD-006, CB-HYD-007, CB-HYD-018, CB-HYD-019, CB-ANL-006, CB-IO-009
+- Capabilities: CB-HYD-006, CB-HYD-007, CB-HYD-018, CB-HYD-019, CB-HYD-024, CB-ANL-006, CB-ANL-015, CB-IO-009
 
 ## Context
 
@@ -32,7 +32,7 @@ without a trusted reference.
   separate build artifacts with their own licence records.
 - Process start and file exchange add overhead, acceptable for runs measured in seconds or longer;
   interactive design checks (cover, slope) stay in the model crates.
-- The same boundary serves flood screening and later traffic engines.
+- The same boundary serves flood screening, two-dimensional unsteady flood solvers, and traffic and pedestrian engines.
 
 ## Alternatives considered
 
