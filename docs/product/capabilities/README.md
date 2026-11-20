@@ -48,8 +48,9 @@ project board.
 | [26-interoperability.md](26-interoperability.md) | `IO` | LandXML, IFC 4.3, DWG/DXF, PDF, machine control, hydraulic and rail exchange | 16 |
 | [27-application-connectors.md](27-application-connectors.md) | `CONNECT` | Exchange of native civil objects with other applications through connectors, licensed bridges and open readers | 15 |
 | [28-web-and-tablet.md](28-web-and-tablet.md) | `TOUCH` | Browser, tablet and phone builds: viewing, position inspection, markups, issues, offline use | 16 |
+| [29-assistance.md](29-assistance.md) | `ASSIST` | Optional assistance: design questions, survey and surface review, criteria findings, alignment, profile, grading and parcel options, network sizing checks, report and sheet drafting | 19 |
 
-Total: 537 capabilities.
+Total: 556 capabilities.
 
 ## Capabilities and issues
 

@@ -29,4 +29,4 @@ from here without a dialog.
 | CB-AUTO-012 | Batch processing | Scripts and graphs run across all documents of a folder or Arc Hub project, with a per-document result log. | T2 | 4 |
 | CB-AUTO-013 | Change events | Protocol clients subscribe to object changes and regeneration completion events. | T2 | 3 |
 | CB-AUTO-014 | Model Context Protocol endpoint | The command registry and queries are exposed through a Model Context Protocol endpoint derived from the same schemas. | T2 | 4 |
-| CB-AUTO-015 | Optional assistant | An optional, provider-neutral assistant proposes command sequences that the user previews and applies explicitly; no document content leaves the machine without an explicit user action. | T3 | 5 |
+| CB-AUTO-015 | Optional assistant | An optional, provider-neutral assistant proposes command sequences that the user previews and applies explicitly; no document content leaves the machine without an explicit user action. The assistance capabilities are in [29-assistance.md](29-assistance.md). | T3 | 4 |

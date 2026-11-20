@@ -62,8 +62,11 @@ scopes are capability ID ranges from the [capability index](product/capabilities
   CB-SURF-006, CB-SURF-012, CB-SURF-027; CB-QTY-008 to CB-QTY-018; CB-GRD-016, CB-GRD-018,
   CB-GRD-019; CB-COR-019; CB-SEC-014; CB-PLAN-011; CB-STY-015; CB-REF-009 to CB-REF-011,
   CB-REF-013, CB-REF-014; CB-BRG-009; CB-AUTO-006 to CB-AUTO-008, CB-AUTO-010, CB-AUTO-012,
-  CB-AUTO-014; CB-IO-008, CB-IO-011 to CB-IO-013.
-- **Depends on `arc-core`:** `arc-io-pointcloud`, `arc-io-mesh`, `arc-io-bcf`, `arc-hub-api`.
+  CB-AUTO-014, CB-AUTO-015; CB-IO-008, CB-IO-011 to CB-IO-013; CB-ASSIST-001 to CB-ASSIST-011,
+  CB-ASSIST-014 to CB-ASSIST-019 (assistance rows never gate the milestone: each is offered when its
+  task suite passes).
+- **Depends on `arc-core`:** `arc-io-pointcloud`, `arc-io-mesh`, `arc-io-bcf`, `arc-hub-api`; the
+  suite assistant host in `arc-app` for the assistance rows.
 - **Depends on other products:** RenderBuilder for photoreal frames through the Arc Scene; Arc Hub
   documents module for file collaboration and issues.
 - **Exit criteria:** workflows 1 (complete with adjustment), 7, 8, 11, 13 and 14 pass.
@@ -71,7 +74,7 @@ scopes are capability ID ranges from the [capability index](product/capabilities
 ## M5 Networks and hydraulics (phase 5)
 
 - **Scope:** CB-GRAV-001 to CB-GRAV-016; CB-PRES-001 to CB-PRES-011; CB-HYD-001 to CB-HYD-027;
-  CB-SEC-011; CB-IO-009.
+  CB-SEC-011; CB-IO-009; CB-ASSIST-012, CB-ASSIST-013.
 - **Depends on `arc-core`:** no new crates; `civilbuilder-hydraulics` adds the engine boundary and the
   two-dimensional solver adapter.
 - **Depends on other products:** none at compile time; Arc Hub automation jobs may run analyses
@@ -83,7 +86,7 @@ scopes are capability ID ranges from the [capability index](product/capabilities
 ## M6 Rail, structures and scale (phase 5)
 
 - **Scope:** CB-RAIL-001 to CB-RAIL-015; CB-BRG-001 to CB-BRG-008, CB-BRG-010 to CB-BRG-012;
-  CB-CON-010; CB-ANL-006 to CB-ANL-009, CB-ANL-014 to CB-ANL-016; CB-VEH-004, CB-VEH-024; CB-REF-012; CB-AUTO-015;
+  CB-CON-010; CB-ANL-006 to CB-ANL-009, CB-ANL-014 to CB-ANL-016; CB-VEH-004, CB-VEH-024; CB-REF-012;
   CB-IO-010.
 - **Depends on `arc-core`:** `arc-hub-api` change sets for element-level editing.
 - **Depends on other products:** Arc Hub stage 2 multi-user editing; ArchBuilder structural import

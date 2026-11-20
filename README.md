@@ -49,6 +49,7 @@ quantities and machine-control models.
 | [Interoperability](docs/product/capabilities/26-interoperability.md) | LandXML, IFC 4.3, DWG/DXF, PDF, machine control |
 | [Application connectors](docs/product/capabilities/27-application-connectors.md) | Exchange of native civil objects with other applications, licensed bridges, open readers |
 | [Web and tablet](docs/product/capabilities/28-web-and-tablet.md) | Browser and tablet builds: viewing, position inspection, markups, offline use |
+| [Assistance](docs/product/capabilities/29-assistance.md) | Optional assistance: questions, survey and surface review, options under design criteria, sizing checks, reports |
 
 ## How it fits in the suite
 
